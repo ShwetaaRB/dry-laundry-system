@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Orders</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="navbar">
+    <div><b>Dry Cleaning System</b></div>
+    <div>
+        <a href="/">Create Order</a>
+        <a href="/orders">Orders</a>
+        <a href="/dashboard">Dashboard</a>
+    </div>
+</div>
+
+<div class="container">
+
+<div class="card">
+<h2>All Orders</h2>
+
+<form method="GET" action="/orders">
+    <select name="status">
+        <option value="ALL">All Status</option>
+        <option>RECEIVED</option>
+        <option>PROCESSING</option>
+        <option>READY</option>
+        <option>DELIVERED</option>
+    </select>
+
+    <input type="text" name="search" placeholder="Search name or phone">
+
+    <button>Filter</button>
+</form>
+
+<table>
+<tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Phone</th>
+    <th>Item</th>
+    <th>Total</th>
+    <th>Status</th>
+    <th>Action</th>
+</tr>
+
+{% for o in orders %}
+<tr>
+    <td>{{ o[0] }}</td>
+    <td>{{ o[1] }}</td>
+    <td>{{ o[2] }}</td>
+    <td>{{ o[3] }}</td>
+    <td>₹{{ o[6] }}</td>
+
+    <td>
+        <span class="badge {{ o[7] }}">{{ o[7] }}</span>
+    </td>
+
+    <td>
+        <form action="/update_status" method="POST">
+            <input type="hidden" name="id" value="{{ o[0] }}">
+            <select name="status">
+                <option>RECEIVED</option>
+                <option>PROCESSING</option>
+                <option>READY</option>
+                <option>DELIVERED</option>
+            </select>
+            <button>Update</button>
+        </form>
+    </td>
+</tr>
+{% endfor %}
+
+</table>
+
+</div>
+</div>
+
+</body>
+</html>
