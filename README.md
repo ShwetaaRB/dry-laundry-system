@@ -14,6 +14,16 @@ A simple web-based system to manage laundry/dry cleaning orders.
 - HTML, CSS
 - SQLite database
 
+##🤖 AI Usage
+This project was built with the help of AI tools like ChatGPT for:
+Backend structure
+Database design
+Debugging errors
+UI improvement
+
+##📌 Author
+Student Project (AI-assisted development)
+
 ## ▶️ How to Run
 ```bash
 pip install flask
@@ -21,12 +31,3 @@ python app.py
 Then open:
 http://127.0.0.1:5000
 
-🤖 AI Usage
-This project was built with the help of AI tools like ChatGPT for:
-Backend structure
-Database design
-Debugging errors
-UI improvement
-
-📌 Author
-Student Project (AI-assisted development)
